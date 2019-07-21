@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	clnt_sock=accept(serv_sock,(struct sockaddr*) &clnt_addr,&clnt_addr_size);
 
 	pthread_mutex_lock(&mutex);
-	clnt_socks[clnt_cnt]=clnt_sock;
+	clnt_socks[clnt_cnt++]=clnt_sock;
 	pthread_mutex_unlock(&mutex);
 
 	pthread_create(&t_id,NULL,handle_clnt,(void*) &clnt_sock);
